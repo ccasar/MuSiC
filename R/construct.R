@@ -464,6 +464,8 @@ music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, se
     m.ids = match(ids, rownames(x))
     D <- D[m.ids, ]
     M.theta <- M.theta[m.ids, ]
+    rownames(D) <- rownames(x)[m.ids]
+    rownames(M.theta) <- rownames(x)[m.ids]
   }
   
   if(ct.cov){
