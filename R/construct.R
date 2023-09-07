@@ -389,6 +389,7 @@ music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, se
       ids <- intersect(unlist(markers), rownames(x))
       m.ids = match(ids, rownames(x))
       Sigma.ct <- Sigma.ct[ , m.ids]
+      colnames(Sigma.ct) <- rownames(x)[m.ids]
     }
     if(verbose){message("Creating Covariance Matrix...")}
   }else{
@@ -411,6 +412,7 @@ music_basis = function(x, non.zero = TRUE, markers = NULL, clusters, samples, se
       ids <- intersect(unlist(markers), rownames(x))
       m.ids = match(ids, rownames(x))
       Sigma <- Sigma[m.ids, ]
+      rownames(Sigma) <- rownames(x)[m.ids]
     }
     if(verbose){message("Creating Variance Matrix...")}
   }
